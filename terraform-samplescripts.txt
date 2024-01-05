@@ -1,0 +1,33 @@
+#simple code to choose terraform backup location.
+ terraform {
+    backend "remote or local" {
+      organization = "Oxdite technologies"
+    } 
+ workspace {
+   name = "terraform-workspace"
+ }
+}
+
+
+#simple terraform code to declare provider and resource.
+
+provider "aws" {
+   access_key = "YOUR_AWS_ACCESS_KEY"
+   secret_key = "YOUR_AWS_SECRET_KEY"
+   region     = "us-west-2"
+ }
+ 
+ resource "aws_instance" "example1" {
+   ami           = "ami-0c94855ba95c574c8"
+   instance_type = "t2.micro"
+   key_name      = "my-key-pair"
+   vpc_security_group_ids = ["my-security-group"]
+ }
+ 
+ #simple code to provision aws s3_bucket
+
+ resource "aws_s3_bucket" "bucket1" {
+   bucket = "bucket1"
+   acl    = "private"
+ }
+
