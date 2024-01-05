@@ -2,12 +2,11 @@
  terraform {
     backend "remote or local" {
       organization = "Oxdite technologies"
-    } 
- workspace {
+ workspaces {
    name = "terraform-workspace"
+  }
  }
 }
-
 
 #simple terraform code to declare provider and resource.
 
